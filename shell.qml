@@ -28,15 +28,29 @@ ShellRoot {
 
         color: "transparent"
 
-        // TODO add grid layout to display packages
         Rectangle {
-            width: 500
-            height: 300
+            width: 1000
+            height: 500
 
             anchors.centerIn: parent
 
             color: "#1e1e1e"
             radius: 12
+
+            Grid{
+                columns: 2
+                rows: 2
+                PackageGrid{
+
+                }
+                NPC{
+
+                }
+                InventorySlot{
+
+                }
+                Rectangle { color: '#7543d8'; width: 300; height: 100 }
+            }
         }
     }
 }
