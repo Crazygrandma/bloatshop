@@ -2,13 +2,14 @@ import Quickshell
 import Quickshell.Io // for Process
 import QtQuick
 
+import "../" as Shop
+
 Item {
     id: root
 
     Process {
         id: installProc
-        command: ["pkexec", "pacman", "-R", "--noconfirm", ...packagesToInstall]
-
+        command: ["pkexec", "pacman", "-S", "--noconfirm", ...Shop.ShopState.selectedPackages]
         stdout: StdioCollector {
             onStreamFinished: {
                 console.log(text);
@@ -24,7 +25,8 @@ Item {
 
     Process {
         id: uninstallProc
-        command: ["pkexec", "pacman", "-R", "--noconfirm", ...packagesToUninstall]
+
+        command: ["pkexec", "pacman", "-R", "--noconfirm",...Shop.ShopState.selectedPackages]
 
         stdout: StdioCollector {
             onStreamFinished: {
@@ -41,9 +43,11 @@ Item {
 
     function install() {
         installProc.running = true;
+        console.log(...Shop.ShopState.selectedPackages);
     }
 
     function uninstall() {
         uninstallProc.running = true;
+        console.log(...Shop.ShopState.selectedPackages);
     }
 }
