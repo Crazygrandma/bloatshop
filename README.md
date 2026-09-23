@@ -2,5 +2,16 @@
 A graphical package manager using quickshell and pacman
 
 # TODOs
-- implement search field
-- list packages based on search query
+
+### Assets
+- inventory UI
+- npc character (Doug)
+- buy, sell buttons
+
+### Package Grid
+Preload:
+- Get package icons using appstreamcli
+- Get package descriptions 
+
+Display apps in grid view
+Using border image with inventory slot border
